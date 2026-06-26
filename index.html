@@ -2,277 +2,573 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operación Champagne · 4-8 Julio 2026</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EUROTRIP 2026 🌍</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;background:#FFFDF9;color:#2D2A26;min-height:100vh}
-.container{max-width:640px;margin:0 auto;padding:24px 16px}
-.header{text-align:center;margin-bottom:32px}
-.header-label{font-size:11px;font-weight:600;letter-spacing:3px;color:#C4A35A;text-transform:uppercase;margin-bottom:8px}
-.header h1{font-size:28px;font-weight:400;margin:0 0 6px;line-height:1.2}
-.header-date{font-size:14px;color:#8A8279}
-.header-line{width:60px;height:1px;background:#C4A35A;margin:16px auto 0}
-.narrative{text-align:center;font-size:14px;color:#6B6560;line-height:1.7;margin-bottom:28px;padding:0 12px;font-style:italic}
-.day-card{margin-bottom:16px;border-radius:12px;overflow:hidden;border:1px solid #E5E0D8;background:#FFFDF9}
-.day-card.proposal-day{border:2px solid #C4A35A}
-.day-head{width:100%;border:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:14px;text-align:left;background:#FFFDF9;font-family:inherit;transition:background .2s}
-.day-head.open{background:var(--day-bg)}
-.day-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;color:#fff}
-.day-meta{flex:1;min-width:0}
-.day-chapter{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
-.day-title{font-size:17px;font-weight:600;color:#2D2A26}
-.day-sub{font-size:13px;color:#8A8279;margin-top:2px}
-.day-arrow{font-size:20px;color:#B0A99E;transition:transform .2s}
-.day-arrow.open{transform:rotate(180deg)}
-.day-body{display:none;padding:0 20px 20px;border-top:1px solid #E5E0D8}
-.day-body.show{display:block}
-.route-btn{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:600;color:#fff;text-decoration:none;margin:16px 0 4px;padding:10px 16px;border-radius:10px;background:#4285F4;font-family:inherit}
-.route-btn:hover{background:#3367D6}
-.timeline{padding-left:6px;border-left:2px solid #E5E0D8;margin-top:16px}
-.ev{display:flex;gap:12px;padding:10px 0 10px 14px;border-bottom:1px solid #F0EDE6}
-.ev:last-child{border-bottom:none}
-.ev-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.ev-dot.highlight{background:#C4A35A}
-.ev-dot.proposal{background:#8B2E3B;border:2px solid #C4A35A;box-shadow:0 0 8px rgba(196,163,90,0.5)}
-.ev-dot.whatsapp{background:#25D366}
-.ev-dot.transport{background:#6B7B8D}
-.ev-dot.normal{background:#A0998E}
-.ev-dot.rest{background:#C4B9A8}
-.ev-content{flex:1}
-.ev-header{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-.ev-time{font-size:12px;font-weight:600;color:#8A8279;min-width:48px}
-.ev-title{font-size:14px;font-weight:600;color:#2D2A26}
-.ev-title.proposal-title{color:#8B2E3B}
-.ev-desc{font-size:13px;color:#6B6560;line-height:1.6;margin-top:3px}
-.wa-box{margin-top:16px;padding:12px 16px;background:#E8F5E2;border-radius:8px;border-left:3px solid #25D366}
-.wa-label{font-size:12px;font-weight:600;color:#25D366;margin-bottom:4px}
-.wa-msg{font-size:13px;color:#2D2A26;font-style:italic}
-.wa-when{font-size:11px;color:#6B6560;margin-top:4px}
-.checklist-btn{width:100%;padding:14px 20px;background:#FFFDF9;color:#2D2A26;border:1px solid #2D2A26;border-radius:12px;cursor:pointer;font-size:15px;font-weight:600;font-family:Georgia,serif;margin-top:8px;margin-bottom:16px;transition:all .2s}
-.checklist-btn.active{background:#2D2A26;color:#FFFDF9}
-.checklist{border:1px solid #E5E0D8;border-radius:12px;padding:20px;margin-bottom:24px;display:none}
-.checklist.show{display:block}
-.checklist-title{font-size:11px;font-weight:600;letter-spacing:2px;color:#C4A35A;text-transform:uppercase;margin-bottom:16px}
-.cat-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.cat-tag{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
-.check-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F0EDE6;cursor:pointer}
-.check-item:last-child{border-bottom:none}
-.check-item input{width:18px;height:18px;cursor:pointer}
-.check-item .label{font-size:14px;flex:1;transition:all .2s}
-.check-item .label.done{color:#B0A99E;text-decoration:line-through}
-.check-item .badge{font-size:10px;padding:2px 8px;border-radius:20px;font-weight:600}
-.check-count{margin-top:16px;text-align:center;font-size:13px;color:#8A8279}
-.footer{text-align:center;padding:20px 0 8px;font-size:12px;color:#B0A99E;border-top:1px solid #E5E0D8}
-.footer .ring{margin-top:8px;font-size:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#FAFAF8;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1B3A5C 0%,#2E5A88 30%,#4A8BC2 60%,#7BB8E0 100%);color:#fff;padding:56px 24px 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'✈️ 🗼 🏛️ ⛪ 🏰 🌉 🎭 🍷';position:absolute;top:12px;left:50%;transform:translateX(-50%);font-size:20px;letter-spacing:12px;opacity:.15;white-space:nowrap}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:40px;background:linear-gradient(to bottom,transparent,#FAFAF8)}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:6px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,9vw,64px);font-weight:800;margin-bottom:4px;text-shadow:0 2px 20px rgba(0,0,0,.15)}
+.hero h1 span{color:#FFD97D}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:28px;font-weight:300}
+.hero-stats{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:8px}
+.hs{background:rgba(255,255,255,.12);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:12px 18px;text-align:center;min-width:72px}
+.hs .v{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.hs .l{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-top:2px}
+
+/* SECTION */
+.section{max-width:720px;margin:0 auto;padding:0 16px}
+.section-title{font-family:'Playfair Display',serif;font-size:22px;text-align:center;margin:32px 0 20px;color:#1B3A5C}
+.section-title span{color:#C0392B}
+
+/* CITY CARDS */
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.cc{background:#fff;border-radius:16px;padding:20px 16px;cursor:pointer;transition:all .25s;border:1px solid #EDE9E3;text-align:center;position:relative;overflow:hidden}
+.cc:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.cc-img{font-size:42px;margin-bottom:8px;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.1))}
+.cc-flag{position:absolute;top:10px;right:10px;font-size:10px;background:#F0EDE8;padding:3px 8px;border-radius:12px;color:#777;font-weight:500}
+.cc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1B3A5C;margin-bottom:2px}
+.cc-dates{font-size:11px;color:#888;margin-bottom:6px}
+.cc-tag{font-size:10px;background:#EBF5FB;color:#2E86C1;padding:3px 10px;border-radius:20px;display:inline-block;font-weight:500}
+.cc-accent{position:absolute;bottom:0;left:0;right:0;height:3px}
+
+/* TIPS */
+.tips{background:#fff;border-radius:16px;border:1px solid #EDE9E3;padding:20px 24px;margin:0 auto 32px;max-width:720px}
+.tips h3{font-family:'Playfair Display',serif;font-size:16px;color:#1B3A5C;margin-bottom:12px}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.tip{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#555;line-height:1.6;padding:6px 0}
+.tip-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.tip b{color:#1a1a1a}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #EDE9E3;overflow-x:auto;scrollbar-width:none;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.nav::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;min-width:max-content;max-width:720px;margin:0 auto}
+.nb{padding:10px 14px;border:none;background:transparent;color:#888;font-family:'Inter',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:.2s;font-weight:500}
+.nb:hover{color:#1B3A5C}
+.nb.active{color:#1B3A5C;border-bottom-color:#2E86C1;font-weight:600}
+.nb .nf{font-size:14px;margin-right:4px}
+
+/* CONTENT */
+.content{max-width:720px;margin:0 auto;padding:0 16px 60px}
+
+/* CITY HEADER */
+.ch{background:#fff;border-radius:16px;border:1px solid #EDE9E3;padding:24px;margin:20px 0 16px;display:flex;align-items:center;gap:16px}
+.ch-icon{font-size:40px}
+.ch-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1B3A5C}
+.ch-info{font-size:12px;color:#888;margin-top:2px}
+
+/* DAY TABS */
+.dt{display:flex;gap:0;margin-bottom:20px;background:#fff;border-radius:12px;overflow-x:auto;border:1px solid #EDE9E3;scrollbar-width:none}
+.dt::-webkit-scrollbar{display:none}
+.dtb{flex:1;min-width:90px;padding:12px 10px;border:none;background:transparent;color:#888;font-family:inherit;font-size:11px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:.2s}
+.dtb.active{color:#1B3A5C;border-bottom-color:#2E86C1;background:#EBF5FB;font-weight:600}
+
+/* DAY HEADER */
+.dh{background:linear-gradient(135deg,#EBF5FB,#F8F4EE);border-radius:14px;padding:18px 20px;margin-bottom:18px;border:1px solid #E0ECF5}
+.dh-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1B3A5C}
+.dh-sub{font-size:11px;color:#888;margin-top:3px}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:4px}
+.stop{display:flex;gap:12px;margin-bottom:6px;padding:8px 0}
+.s-time{min-width:44px;font-size:11px;font-weight:600;color:#888;padding-top:3px;font-family:'Courier New',monospace}
+.s-dot-w{display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:4px}
+.s-dot{width:10px;height:10px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #ddd;flex-shrink:0}
+.s-line{width:1px;flex:1;background:#E8E4DE;margin-top:4px}
+.ds{background:#2E86C1}.df{background:#27AE60}.dh2{background:#F39C12}.dtr{background:#E74C3C}.dge{background:#8E44AD}
+.s-card{flex:1;background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #EDE9E3;transition:box-shadow .15s}
+.s-card:hover{box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.s-name{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:3px}
+.s-desc{font-size:12px;color:#666;line-height:1.65}
+.s-walk{font-size:10px;color:#2E86C1;margin-top:4px;display:flex;align-items:center;gap:4px}
+.s-dur{font-size:10px;color:#aaa;margin-top:2px}
+
+/* FOOD */
+.fbtn{margin-top:6px;border:none;background:#E8F8F5;color:#1E8449;font-size:10px;padding:4px 12px;border-radius:20px;cursor:pointer;font-family:inherit;font-weight:500;transition:.2s}
+.fbtn:hover{background:#D5F5E3}
+.flist{margin-top:8px;display:none;padding:10px 12px;background:#FAFFF8;border-radius:10px;border:1px solid #D5F5E3}
+.flist.open{display:block}
+.fi{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #EEF7EC}
+.fi:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.fn{font-size:12px;font-weight:600;color:#1a1a1a}
+.fd{font-size:11px;color:#666;margin-top:1px}
+.fp{font-size:10px;color:#1E8449;font-weight:600;margin-top:2px}
+
+/* CULTURE */
+.cult-btn{width:100%;margin-top:20px;padding:14px 18px;background:#fff;border:1px solid #EDE9E3;border-radius:12px;color:#1B3A5C;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-align:left;display:flex;justify-content:space-between;align-items:center;transition:.2s}
+.cult-btn:hover{background:#F8F6F2}
+.cult-body{display:none;padding:16px 18px;background:#FFFEF8;border-radius:0 0 12px 12px;border:1px solid #EDE9E3;border-top:none;font-size:12px;color:#555;line-height:1.85}
+.cult-body.open{display:block}
+
+/* MUST SEE */
+.ms{margin-top:18px;background:#fff;border-radius:12px;border:1px solid #EDE9E3;padding:14px 16px}
+.ms h3{font-size:12px;color:#1B3A5C;letter-spacing:.5px;margin-bottom:10px;font-weight:600}
+.ms-chips{display:flex;flex-wrap:wrap;gap:6px}
+.msc{font-size:10px;padding:4px 10px;background:#EBF5FB;border:1px solid #D6EAF8;border-radius:8px;color:#2E86C1;font-weight:500}
+
+/* BACK BTN */
+.back{display:inline-flex;align-items:center;gap:6px;margin:20px 0 0;padding:8px 16px;background:#fff;border:1px solid #EDE9E3;border-radius:10px;cursor:pointer;font-family:inherit;font-size:12px;color:#1B3A5C;font-weight:500;transition:.2s}
+.back:hover{background:#EBF5FB}
+.map-btn{display:block;width:100%;margin-bottom:18px;padding:12px 18px;background:linear-gradient(135deg,#1a73e8,#4285f4);color:#fff;border:none;border-radius:12px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;transition:.2s;box-shadow:0 2px 8px rgba(26,115,232,.25)}
+.map-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,115,232,.35)}
+
+/* FOOTER */
+.footer{text-align:center;padding:32px 16px;font-size:11px;color:#bbb;border-top:1px solid #EDE9E3;margin-top:40px}
+
+@media(max-width:500px){.hero h1{font-size:36px}.city-grid{grid-template-columns:1fr 1fr}.ch{flex-direction:column;text-align:center}.tips-grid{grid-template-columns:1fr}.hero-stats{gap:10px}.hs{padding:8px 12px;min-width:60px}.hs .v{font-size:20px}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <div class="header-label">Operación Champagne</div>
-    <h1>París — Champagne — Bruselas</h1>
-    <div class="header-date">4 — 8 de julio 2026</div>
-    <div class="header-line"></div>
-  </div>
-  <div class="narrative">Sorpresa → París → Romance → Champagne → Propuesta → Celebración → Reencuentro familiar</div>
-  <div id="days"></div>
-  <button class="checklist-btn" id="checkBtn" onclick="toggleChecklist()">📋 Ver checklist de reservas</button>
-  <div class="checklist" id="checklist"></div>
-  <div class="footer">
-    Cuando lleguen a Bruselas ya no serán simplemente la pareja que salió de Barcelona.<br>
-    Llegarán comprometidos, con una historia propia de 4 días.
-    <div class="ring">💍</div>
-  </div>
-</div>
+<div id="app"></div>
 <script>
-const DAYS=[
-{id:1,chapter:"Capítulo 1",title:"La Gran Sorpresa",date:"Viernes 4 de julio",location:"París",color:"#1E1B2E",bg:"#F0EDE6",icon:"✨",route:"https://www.google.com/maps/dir/Place+du+Trocad%C3%A9ro+Paris/Tour+Eiffel+Paris",
-wa:{day:"DÍA 1",msg:"París, solo tú y yo. Esto apenas comienza.",when:"Al revelar la sorpresa en el aeropuerto"},
-events:[
-{time:"~18:00",title:"Aeropuerto — La revelación",desc:"La familia se va a Madrid. Le revelas: \"No nos vamos. Tenemos 4 días para nosotros solos.\"",type:"highlight"},
-{time:"18:00",title:"📲 Imagen 1 al WhatsApp",desc:"\"Sorpresa en París — No nos vamos a Madrid. Nos quedamos aquí, solo tú y yo.\"",type:"whatsapp"},
-{time:"19:00",title:"Check-in hotel · Prepararse",desc:"Llegar al hotel, dejar maletas, ducharse y cambiarse. Transición de viaje a romance.",type:"normal"},
-{time:"20:30",title:"Trocadéro — Torre Eiffel iluminada",desc:"Paseo por Trocadéro y junto al Sena. Crepe o cena ligera. Sin agenda pesada: que asimile la sorpresa.",type:"highlight"},
-{time:"22:30",title:"Regreso al hotel",desc:"Dormir temprano. Mañana es día largo de shopping.",type:"rest"}
+const ICONS={bcn:"🏖️",roma:"🏛️",firenze:"🎨",paris:"🗼",madrid:"☀️",bruselas:"🍫",brujas:"🏰",gante:"⚔️"};
+const COLORS={bcn:"#E74C3C",roma:"#C0392B",firenze:"#C4622D",paris:"#2E86C1",madrid:"#E67E22",bruselas:"#2471A3",brujas:"#8B6555",gante:"#1E8449"};
+const ROUTES={
+"bcn_0":"https://www.google.com/maps/dir/Sagrada+Familia+Barcelona/Passeig+de+Gracia+Barcelona/Playa+Barceloneta+Barcelona/Port+Olimpic+Barcelona/@41.389,2.187,14z/data=!4m2!4m1!3e2",
+"bcn_1":"https://www.google.com/maps/dir/Sagrada+Familia+Barcelona/Casa+Mila+La+Pedrera+Barcelona/Casa+Batllo+Barcelona/La+Rambla+Barcelona/Mercat+de+la+Boqueria+Barcelona/Catedral+de+Barcelona/Arc+de+Triomf+Barcelona/@41.387,2.17,14z/data=!4m2!4m1!3e2",
+"roma_0":"https://www.google.com/maps/dir/Colosseum+Rome/Arch+of+Constantine+Rome/Roman+Forum+Rome/Palatine+Hill+Rome/Circus+Maximus+Rome/Bocca+della+Verita+Rome/Trastevere+Rome/Piazza+Trilussa+Rome/Piazza+dei+Cavalieri+di+Malta+Rome/Colosseum+Rome/@41.893,12.488,14z/data=!4m2!4m1!3e2",
+"roma_1":"https://www.google.com/maps/dir/Trevi+Fountain+Rome/Spanish+Steps+Rome/Chiesa+di+Sant+Ignazio+di+Loyola+Rome/Pantheon+Rome/Piazza+Navona+Rome/Castel+Sant+Angelo+Rome/St+Peters+Basilica+Vatican/Piazza+del+Popolo+Rome/Terrazza+del+Pincio+Rome/@41.902,12.477,14z/data=!4m2!4m1!3e2",
+"firenze_0":"https://www.google.com/maps/dir/Piazza+Santissima+Annunziata+Florence/Florence+Cathedral/Piazza+della+Signoria+Florence/Uffizi+Gallery+Florence/Ponte+Vecchio+Florence/Piazza+Piattellina+Florence/Palazzo+Pitti+Florence/Piazza+Santo+Spirito+Florence/Basilica+Santa+Croce+Florence/Vivoli+Gelato+Florence/@43.77,11.255,14z/data=!4m2!4m1!3e2",
+"firenze_1":"https://www.google.com/maps/dir/Piazzale+Michelangelo+Florence/San+Miniato+al+Monte+Florence/Florence+Cathedral/Piazza+della+Repubblica+Florence/Via+dei+Neri+Florence/Basilica+San+Lorenzo+Florence/Santa+Maria+Novella+Florence/@43.77,11.255,14z/data=!4m2!4m1!3e2",
+"paris_1":"https://www.google.com/maps/dir/Trocadero+Paris/Eiffel+Tower+Paris/Arc+de+Triomphe+Paris/Grand+Palais+Paris/Pont+Alexandre+III+Paris/Les+Invalides+Paris/Place+de+la+Concorde+Paris/Louvre+Museum+Paris/Palais+Royal+Paris/Opera+Garnier+Paris/@48.862,2.335,13z/data=!4m2!4m1!3e2",
+"paris_2":"https://www.google.com/maps/dir/Le+Mur+des+Je+Taime+Paris/Sacre+Coeur+Paris/Place+du+Tertre+Paris/La+Maison+Rose+Montmartre+Paris/Moulin+de+la+Galette+Paris/Cafe+des+Deux+Moulins+Paris/Moulin+Rouge+Paris/@48.886,2.34,15z/data=!4m2!4m1!3e2",
+"madrid_0":"https://www.google.com/maps/dir/Parque+del+Retiro+Madrid/Palacio+de+Cristal+Retiro+Madrid/Puerta+de+Alcala+Madrid/Plaza+de+Cibeles+Madrid/@40.42,-3.688,15z/data=!4m2!4m1!3e2",
+"madrid_1":"https://www.google.com/maps/dir/Estacion+Atocha+Madrid/Museo+del+Prado+Madrid/Puerta+del+Sol+Madrid/Plaza+Mayor+Madrid/Mercado+San+Miguel+Madrid/Catedral+Almudena+Madrid/Palacio+Real+Madrid/Templo+de+Debod+Madrid/Gran+Via+Madrid/@40.418,-3.707,14z/data=!4m2!4m1!3e2",
+"madrid_2":"https://www.google.com/maps/dir/Lavapies+Madrid/Chueca+Madrid/Malasana+Madrid/Circulo+de+Bellas+Artes+Madrid/Plaza+de+Colon+Madrid/Santiago+Bernabeu+Stadium+Madrid/@40.425,-3.7,14z/data=!4m2!4m1!3e2",
+"bruselas_1":"https://www.google.com/maps/dir/Grand+Place+Brussels/Manneken+Pis+Brussels/Galeries+Royales+Saint+Hubert+Brussels/Cathedral+St+Michael+Brussels/Mont+des+Arts+Brussels/Grand+Sablon+Brussels/Palais+de+Justice+Brussels/Delirium+Cafe+Brussels/Parc+du+Cinquantenaire+Brussels/@50.845,4.355,14z/data=!4m2!4m1!3e2",
+"brujas_0":"https://www.google.com/maps/dir/Markt+Bruges/Belfort+Bruges/Burg+Bruges/Rozenhoedkaai+Bruges/Church+of+Our+Lady+Bruges/Bonifacius+Bridge+Bruges/Begijnhof+Bruges/Minnewater+Bruges/De+Halve+Maan+Brewery+Bruges/@51.208,3.225,15z/data=!4m2!4m1!3e2",
+"gante_0":"https://www.google.com/maps/dir/St+Michaels+Bridge+Ghent/Graslei+Ghent/St+Nicholas+Church+Ghent/St+Bavos+Cathedral+Ghent/Gravensteen+Castle+Ghent/Patershol+Ghent/@51.054,3.72,15z/data=!4m2!4m1!3e2"
+};
+const C=[
+{id:"home"},
+{id:"bcn",flag:"🇪🇸",name:"Barcelona",dates:"27–29 Jun",accom:"Airbnb zona Sagrada Família · 5 min caminando",
+days:[
+{date:"27 Jun · Viernes",title:"✈️ Llegada + Playa Barceloneta",stops:[
+["13:40","tr","✈️","Llegada aeropuerto El Prat","","Aerobús o Metro L9 al centro (~40 min, €6.75)"],
+["14:45","ht","🏠","Check-in Airbnb","45 min","Zona Sagrada Família. Maletas, ropa de playa"],
+["15:30","fo","🛒","Mercadona — compras","30 min","Comprar cena de hoy + desayuno y cena de mañana 28. Supermercado cerca del Airbnb"],
+["16:00","si","🛍️","Passeig de Gràcia — Compras","45 min","Desvío camino a la playa. REBAJAS DE VERANO (arrancan ~27 jun en España)",[["Mango","Passeig de Gràcia 8-10. Flagship enorme. Hombre y mujer juntos. Vestidos florales ella, camisas lino él","€25-60",""],["Massimo Dutti","Passeig de Gràcia 65. Las mejores camisas de lino calidad-precio","€40-60",""],["COS","Passeig de Gràcia. Minimalista escandinavo, linos premium","€50-80",""]],"🚶 20 min desde Airbnb"],
+["17:00","si","🏖️","Playa de la Barceloneta","3h","Mediterráneo, Pez de Gehry, Torre Mapfre. Sol hasta 21:30","🚶 30 min bajando desde Passeig de Gràcia"],
+["19:30","fo","🍽️","Cena picnic en la playa","45 min","Sándwiches y comida del Mercadona. Cenar en Port Olímpic o la misma playa sin necesidad de volver"],
+["20:45","si","🌅","Paseo nocturno Port Olímpic","30 min","Pez de Gehry iluminado"],
+["21:15","ht","🏠","Regreso Airbnb","","","🚶 1h · 5.5km"]
+],culture:"La Barceloneta nació en 1753 para reubicar pescadores desplazados por Felipe V. La 'bomba' lleva ese nombre por las bombas de la Guerra Civil. El Pez de Gehry (1992) transformó la fachada marítima para los Juegos Olímpicos.",must:["Playa Barceloneta","Port Olímpic","Pez de Gehry"]},
+{date:"28 Jun · Sábado",title:"🏛️ Ruta de imperdibles a pie",stops:[
+["08:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Con lo comprado en Mercadona"],
+["08:50","si","⛪","Sagrada Família","45 min","Gaudí desde 1882. Fachada del Nacimiento con buena luz matutina","🚶 5 min"],
+["09:55","si","🏗️","Passeig de Gràcia + La Pedrera","45 min","Casa Milà (1912), fachada ondulante","🚶 20 min"],
+["10:45","si","🐉","Casa Batlló","45 min","Azulejos iridiscentes, balcones-cráneo. Manzana de la Discordia","🚶 5 min"],
+["11:35","si","🌳","La Rambla","40 min","1.2 km peatonal. Mosaico de Miró en el suelo","🚶 20 min"],
+["12:15","si","🍊","Mercado de La Boqueria","40 min","Desde 1217. Frutas, jamón, zumos ~2-3€","🚶 2 min"],
+["13:00","fo","🍽️","Almuerzo Barrio Gótico","1h15","Menú del día catalán",[["Can Culleretes","El más antiguo (1786). Menú completo","~11-13€/pp","4.2⭐"],["Elisabets","Menú casero, lleno de locales","~12€/pp","4.3⭐"]],"🚶 10 min"],
+["14:25","si","⛪","Barrio Gótico + Catedral","50 min","13 ocas, Pont del Bisbe, columnas de Augusto",""],
+["15:20","si","🏛️","Arc de Triomf + Ciutadella","1h15","Neo-mudéjar (1888). Cascada con diseño de Gaudí joven. Lago, paseo con sombra","🚶 15 min"],
+["16:35","fo","🍦","Parada recarga","25 min","Helado o refresco en zona Ciutadella/Born"],
+["17:00","si","🚶","Paseo por El Born","1h","Barrio de moda, callejuelas medievales, galerías, tiendas, ambiente local","🚶 5 min"],
+["18:00","si","🚶","Paseo libre — lo que quieran","1h30","Volver a algún punto favorito, compras, fotos, disfrutar Barcelona sin afán"],
+["19:30","ht","🚶","Regreso caminando al Airbnb","","","🚶 20-30 min"],
+["20:00","fo","🍽️","Cena en casa + preparar maletas","","Con lo del Mercadona. Alarma 04:30 — mañana salida 05:00"]
+],culture:"Sagrada Família: proyecto más largo de la era moderna. La Boqueria desde 1217. Arc de Triomf: Exposición Universal 1888. El Barrio Gótico guarda columnas romanas del 10 a.C. El Born fue el barrio más importante de la Barcelona medieval.",must:["Sagrada Família","Casa Batlló","La Pedrera","La Rambla","La Boqueria","Barrio Gótico","Catedral","Arc de Triomf","El Born"]},
+{date:"29 Jun · Domingo",title:"✈️ Vuelo a Roma",stops:[
+["05:00","ht","🏠","Check-out","",""],["05:10","tr","🚕","Taxi al aeropuerto","50 min","~30-35€"],["09:00","tr","✈️","Barcelona → Roma Fiumicino","2h10","Llegada ~11:10"]
+],culture:"",must:[]}
 ]},
-{id:2,chapter:"Capítulo 2",title:"París Para Dos",date:"Sábado 5 de julio",location:"París",color:"#3B5998",bg:"#EDF1F7",icon:"🛍️",route:"https://www.google.com/maps/dir/Angelina+226+Rue+de+Rivoli+Paris/Ladur%C3%A9e+16+Rue+Royale+Paris/Place+de+la+Madeleine+Paris/La+Jacobine+59+Rue+Saint-Martin+Paris/Avenue+des+Champs-%C3%89lys%C3%A9es+Paris/Printemps+Haussmann+Paris/Caf%C3%A9+de+la+Paix+5+Place+de+l%27Op%C3%A9ra+Paris/Vedettes+du+Pont+Neuf+Paris",
-wa:{day:"DÍA 2",msg:"Mañana, lista antes del amanecer... Nos vamos para otro destino hermoso.",when:"En la noche, después del crucero por el Sena"},
-events:[
-{time:"08:30",title:"Desayuno — Angelina, Rue de Rivoli",desc:"Salón de té Belle Époque de 1903. Mármol, espejos, techos dorados. Pedir el chocolate caliente l'Africain y el Mont-Blanc. 226 Rue de Rivoli.",type:"highlight"},
-{time:"10:15",title:"Parada rápida — Ladurée, Rue Royale",desc:"La casa original de los macarons desde 1862. Comprar macarons y seguir. 16 Rue Royale.",type:"normal"},
-{time:"10:30",title:"Ruta shopping: Madeleine → Saint-Honoré",desc:"Sézane, Sandro, Maje, Massimo Dutti, Scalpers. Boutiques francesas y moda accesible de lujo.",type:"normal"},
-{time:"13:00",title:"Almuerzo — La Jacobine",desc:"Restaurante con encanto cerca de Place Vendôme. Cocina francesa clásica en ambiente íntimo. Sin reserva.",type:"normal"},
-{time:"15:00",title:"Champs-Élysées + Grands Magasins",desc:"Printemps, Galeries Lafayette.",type:"normal"},
-{time:"17:00",title:"Café de la tarde — Café de la Paix",desc:"Frente a la Ópera Garnier. Interior Napoleón III con detalles en oro, espejos y elegancia absoluta. 5 Place de l'Opéra.",type:"highlight"},
-{time:"18:30",title:"Regreso al hotel — Prepararse",desc:"Descanso rápido, cambiarse para la noche.",type:"rest"},
-{time:"20:00",title:"Crucero por el Sena — Vedettes",desc:"Paseo nocturno en barco. París iluminado desde el agua. Reserva confirmada.",type:"highlight"},
-{time:"22:00",title:"📲 Imagen 2 al WhatsApp",desc:"\"Mañana, lista antes del amanecer... Nos vamos para otro destino hermoso.\" Sin decir dónde.",type:"whatsapp"}
+{id:"roma",flag:"🇮🇹",name:"Roma",dates:"29 Jun – 1 Jul",accom:"Airbnb Piazza Vittorio Emanuele II · 5 min de Termini",
+days:[
+{date:"29 Jun · Domingo",title:"🏟️ Roma Antigua + Trastevere",stops:[
+["11:00","tr","✈️","Llegada Fiumicino","60 min","Leonardo Express a Termini (32 min, €14)"],
+["12:30","ht","🏠","Check-in Airbnb","30 min",""],
+["12:30","fo","🛒","Carrefour Express — compras","30 min","Comprar desayuno y cena del 30 Jun + desayuno del 01 Jul. Hay Carrefour Express cerca de Piazza Vittorio"],
+["13:00","fo","🍝","Almuerzo Barrio Monti","1h","",[["Trattoria da Valentino","Pasta clásica, familiar","€€","4.5⭐"],["Li Rioni","Pizza al taglio local","€","4.4⭐"]],"🚶 5 min"],
+["14:15","si","🏟️","Coliseo","75 min","50.000 espectadores, 80 d.C.","🚶 15 min"],
+["15:35","si","🏛️","Arco de Constantino","20 min","315 d.C.","🚶 2 min"],
+["16:00","fo","🍦","Gelato","20 min","",[["Fatamorgana","Sabores creativos","€","4.5⭐"]]],
+["16:25","si","🏛️","Foro Romano","50 min","Aquí asesinaron a Julio César","🚶 5 min"],
+["17:20","si","⛰️","Monte Palatino","40 min","Residencia emperadores. Ticket combo","🚶 5 min"],
+["18:10","si","🐎","Circo Máximo","25 min","250.000 espectadores","🚶 10 min"],
+["18:40","si","👄","Boca de la Verdad","15 min","⚠️ Cierra 18:50","🚶 12 min"],
+["19:15","fo","🍕","Cena Pizza — Trastevere","90 min","Pizza ligera en el barrio más romántico de Roma",[["Dar Poeta","Vicolo del Bologna 45. Pizzería con mesa y servicio, la mejor de Trastevere. Calzone de Nutella legendario. Llegar temprano por las colas","~€8-9/pizza","4.3⭐ (9.400+)"],["La Boccaccia","Via Santa Dorotea 2. Pizza al taglio crujiente. 3 trozos por €5. Familia de 4 come por menos de €15","~€3.50/trozo","4.5⭐"],["Pizzeria Ivo","Via San Francesco a Ripa 158. Clásica romana desde los 60s. Mesas y servicio. Ambiente ruidoso y auténtico. Fiori di zucca y supplì imperdibles. Llegar temprano","~€8-10/pizza","4.4⭐"]],"🚶 15 min"],
+["21:00","si","🎶","Piazza Trilussa","30 min","Noche de cantar y dar gracias en familia. Plaza icónica de Trastevere con ambiente nocturno, músicos callejeros y la fuente iluminada. Momento especial","🚶 5 min"],
+["21:30","si","🔑","Cerradura del Aventino","10 min","Piazza dei Cavalieri di Malta. Mirar por la cerradura de la puerta del Priorato de los Caballeros de Malta: la cúpula de San Pedro perfectamente enmarcada al final de un túnel de jardín. De noche, con la cúpula iluminada, es mágico","🚶 15 min subiendo"],
+["21:45","si","🌙","Coliseo iluminado","20 min","Broche perfecto","🚶 15 min bajando"],
+["21:40","ht","🏠","Airbnb","","","🚶 15 min"]
+],culture:"El Coliseo tenía toldos, ascensores hidráulicos y 80 salidas. Julio César asesinado en los Idus de Marzo del 44 a.C. Trastevere ('al otro lado del Tíber') era barrio de trabajadores.",must:["Coliseo","Arco Constantino","Foro Romano","Palatino","Circo Máximo","Boca Verdad","Trastevere","Piazza Trilussa","Cerradura Aventino","Coliseo iluminado"]},
+{date:"30 Jun · Lunes",title:"⛲ Centro + Vaticano",stops:[
+["06:00","ht","🏠","Salida madrugada","",""],
+["06:30","si","⛲","Fontana di Trevi","35 min","A las 6:30 solos. Moneda mano derecha sobre hombro izquierdo","🚶 25 min"],
+["07:15","si","🏛️","Plaza de España","40 min","135 escaleras (1726). Solo romanos a esta hora","🚶 10 min"],
+["08:00","fo","☕","Desayuno en camino","30 min","Sándwiches preparados la noche anterior con lo del Carrefour. Comer en Trevi o Plaza de España"],
+["08:35","si","⛪","Iglesia de Sant'Ignazio","15 min","Piazza di Sant'Ignazio. La cúpula que NO existe: es una pintura plana en el techo (trompe-l'oeil de Andrea Pozzo, 1685) que engaña completamente al ojo. Gratis y sin colas","🚶 3 min"],
+["09:10","si","🏛️","Panteón","50 min","Cúpula 43m (125 d.C.). Tumba de Rafael. €5","🚶 3 min"],
+["10:05","si","⛲","Piazza Navona","50 min","Bernini: Fontana dei Quattro Fiumi","🚶 5 min"],
+["11:00","si","🏰","Castel Sant'Angelo","1h","Mausoleo Adriano → fortaleza papal. €15-18","🚶 18 min"],
+["12:05","si","🌉","Ponte Sant'Angelo","30 min","10 ángeles de Bernini","🚶 2 min"],
+["13:00","fo","🍝","Almuerzo Prati","1h","",[["Osteria dell'Angelo","Via Bettolo 24, Prati. Romano puro. Solo mediodía","€€","4.6⭐"],["Ai Balestrari In Prati","Via Silla 24, Prati. Cocina romana familiar desde 1862. A pasos del Vaticano","€€","4.4⭐"]],"🚶 10 min"],
+["14:10","si","⛪","Basílica San Pedro — Vaticano","90 min","¡Estamos en el Vaticano! Mayor iglesia del mundo. Pietà de Miguel Ángel. Vamos a saludar al Papa. Gratis","🚶 10 min"],
+["16:00","fo","🍦","Gelato Prati / Popolo","30 min","",[["Gelateria dei Gracchi","Via dei Gracchi, Prati. Pistacchio siciliano espectacular","€","4.7⭐"],["Eden il Paradiso del Pistacchio","Via Flaminia 40, junto a Piazza del Popolo. Paraíso del pistacho: gelato, cannoli, granita. Todo de pistacho siciliano","€","4.6⭐"]]],
+["17:10","si","🏛️","Piazza del Popolo","25 min","Iglesias gemelas, obelisco 10 a.C.","🚶 40 min"],
+["17:40","si","🌇","Mirador del Pincio","80 min","Mejor panorámica. Sunset ~20:45","🚶 15 min"],
+["19:15","ht","🏠","Regreso al Airbnb + Cena en casa","","Caminar desde el Pincio al Airbnb. Cenar con lo comprado en Carrefour Express. Última noche en Roma","🚶 25 min"]
+],culture:"Fontana di Trevi: final del acueducto Aqua Virgo (19 a.C.). El Panteón sobrevivió porque se convirtió en iglesia en 609 d.C. El Vaticano: 0.44 km², centro de 1.300M católicos. Miguel Ángel diseñó la cúpula a los 88 años.",must:["Trevi","Plaza España","Sant'Ignazio","Panteón","Piazza Navona","Castel Sant'Angelo","Ponte Sant'Angelo","Basílica San Pedro","Piazza del Popolo","Pincio"]},
+{date:"1 Jul · Martes",title:"🚆 Partida a Florencia",stops:[
+["08:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Con lo comprado en Carrefour Express. Último desayuno en Roma"],
+["10:30","tr","🧳","Roma Termini","",""],["11:55","tr","🚆","Italo → Florencia","96 min","Llegada SMN 13:31"]
+],culture:"",must:[]}
 ]},
-{id:3,chapter:"Capítulo 3",title:"Champagne",date:"Domingo 6 de julio",location:"Épernay · LOISIUM Wine & Spa",color:"#6B4E2A",bg:"#F5F0E5",icon:"🍾",route:"https://www.google.com/maps/dir/Gare+de+l%27Est+Paris/Gare+d%27%C3%89pernay/LOISIUM+Wine+Spa+Hotel+Champagne+Mutigny/Mo%C3%ABt+%26+Chandon+20+Avenue+de+Champagne+%C3%89pernay/LOISIUM+Wine+Spa+Hotel+Champagne",
-wa:null,
-events:[
-{time:"06:36",title:"Tren París Est → Épernay",desc:"Primer tren del día. ~1h 15min. Reserva confirmada.",type:"transport"},
-{time:"~08:00",title:"Llegada Épernay → LOISIUM",desc:"Taxi al hotel (~10 min). Dejar maletas, check-in oficial a las 16:00 pero el spa está disponible.",type:"normal"},
-{time:"10:00",title:"Mañana de spa y relax",desc:"Piscina exterior con vistas a viñedos, sauna, hammam, masajes. Sin prisas.",type:"highlight"},
-{time:"13:00",title:"Almuerzo ligero en el hotel",desc:"Restaurante L'Horisium o terraza con vista a los viñedos.",type:"normal"},
-{time:"15:30",title:"Tour Dom Pérignon / Moët & Chandon",desc:"Visita a las bodegas en Avenue de Champagne. Degustación vintage. ~€225/persona. Pendiente confirmar reserva.",type:"highlight"},
-{time:"19:30",title:"Cena elegante en LOISIUM",desc:"Vestirse bien. Cocina francesa de temporada + maridaje con champagne. Atardecer sobre viñedos. Reserva confirmada.",type:"highlight"}
+{id:"firenze",flag:"🇮🇹",name:"Florencia",dates:"1–2 Jul",accom:"Via San Gallo 1, 50129 · 10 min de SMN",
+days:[
+{date:"1 Jul · Martes",title:"🌺 Llegada + Gran recorrido",stops:[
+["12:00","tr","🚆","Llegada Firenze SMN","","Maletas al Airbnb (10 min)"],
+["12:00","si","🏛️","Piazza SS. Annunziata","20 min","Plaza renacentista perfecta. Hospital Inocentes","🚶 3 min"],
+["12:20","si","⛪","Duomo — primer vistazo","15 min","Cúpula Brunelleschi. Volverán mañana","🚶 10 min"],
+["12:35","si","🏛️","Piazza Signoria + Loggia dei Lanzi","45 min","Perseo de Cellini. Museo gratis al aire libre","🚶 10 min"],
+["13:20","si","🏛️","Uffizi exterior + Corridoio Vasariano","20 min","Foto icónica hacia el Arno","🚶 2 min"],
+["13:40","si","🌉","Ponte Vecchio + entrar al Oltrarno","30 min","Único puente no destruido por nazis. Orfebres desde 1593","🚶 3 min"],
+["14:10","fo","🍽️","Almuerzo Oltrarno","1h15","Comida toscana auténtica en el barrio más local",[["l'Brindellone","Piazza Piattellina 10, junto a Santo Spirito. Tagliolini de trufa fresca y bistecca. Ambiente 100% local. Reservar","~12-18€","4.5⭐"],["Trattoria Sabatino","Via Pisana 2r, 10 min de Santo Spirito. Peposo (estofado toscano) legendario. Compartir mesa con locales","~8-12€","4.4⭐"]],"🚶 5 min"],
+["15:25","si","🏛️","Palazzo Pitti","40 min","Fachada descomunal. Boboli opcional €11","🚶 8 min"],
+["16:05","si","⛪","Santo Spirito + Plaza","30 min","Brunelleschi. Corazón del Oltrarno auténtico","🚶 5 min"],
+["16:35","fo","🍦","Gelato Oltrarno","25 min","",[["La Carraia ⭐","Orilla del Arno, recomendada por locales","3-4€",""]],"🚶 5 min"],
+["17:00","si","🏛️","Santa Croce","35 min","Galileo, Miguel Ángel, Maquiavelo enterrados","🚶 20 min"],
+["17:35","fo","🍨","Vivoli — Affogato","20 min","Via Isola delle Stinche 7r. El affogato más famoso y fotografiado de Florencia (gelato + espresso caliente). Tiene buchette (ventanita histórica de vino)","🚶 5 min"],
+["17:55","fo","🍷","Babae — Copa de vino por la ventanita","15 min","Buchette del vino: tradición florentina del s.XVI, te sirven vino por una ventanita medieval en la pared. Experiencia única","🚶 8 min"],
+["18:10","si","🏰","Bargello + calles medievales","30 min","Primera sede gobierno s.XIII","🚶 5 min"],
+["18:40","ht","🏠","Descanso","1h20","","🚶 15 min"],
+["20:00","fo","🍽️","Cena ligera en casa o Trattoria Mario","","Trattoria Mario: Via Rosina 2, desde 1953. Ragù (<10€), Bistecca (~35€/2). O cena ligera en el Airbnb",[["Trattoria Mario","Via Rosina 2. Desde 1953. Toscana casera. Cierra 21:30","~10-15€","4.4⭐"]],"🚶 10 min"]
+],culture:"Los Medici financiaron el Renacimiento durante 2 siglos. El triángulo de poder: Palazzo Vecchio → Uffizi → Corridoio Vasariano → Ponte Vecchio → Palazzo Pitti. Las buchette del vino son ventanitas medievales por donde los nobles vendían vino directamente al pueblo durante las plagas.",must:["Signoria","Loggia dei Lanzi","Uffizi ext.","Ponte Vecchio","Oltrarno","l'Brindellone","Pitti","Santo Spirito","Santa Croce","Vivoli","Babae","Bargello"]},
+{date:"2 Jul · Miércoles",title:"🌄 Amanecer + Duomo + Vuelo París",stops:[
+["06:00","ht","🏠","Salida madrugada","",""],
+["06:45","si","🌄","Piazzale Michelangelo","50 min","Vista panorámica al amanecer. Solos","🚶 45 min"],
+["07:35","si","⛪","San Miniato al Monte","30 min","Románica s.XI. Vista más alta","🚶 5 min"],
+["08:05","fo","☕","Desayuno San Niccolò","1h","Cappuccino en barra ~3-5€","🚶 15 min"],
+["09:05","si","⛪","Duomo completo","50 min","Catedral gratis. Puertas del Paraíso de Ghiberti","🚶 15 min"],
+["09:55","si","🎠","Piazza della Repubblica","40 min","Cafés históricos Gilli y Paszkowski","🚶 5 min"],
+["10:35","si","🏛️","Orsanmichele","25 min","Medieval, gratis","🚶 5 min"],
+["11:00","si","🐗","El Porcellino","20 min","Tocar hocico = volver a Florencia","🚶 5 min"],
+["11:20","fo","🥪","All'Antico Vinaio","45 min","El sandwich más famoso de Florencia. Via dei Neri 65r. 3 locales contiguos — elegir la fila más corta. Llegar ~11:20 (recién abierto, fila mínima)",[["La Favolosa ⭐","Sbriciolona, pecorino, alcachofa","~7€",""],["La del Boss","Jamón crudo, pecorino, trufas","~8€",""],["Forno Becagli","Borgo Ognissanti 92r, cerca SMN. Schiacciata alla Fiorentina: bizcocho florentino ligero y cítrico","~3-5€","4.4⭐"]],"🚶 5 min del Porcellino"],
+["12:15","si","⛪","San Lorenzo exterior","20 min","Iglesia de los Medici. Fachada inacabada Miguel Ángel","🚶 2 min"],
+["12:35","si","🏛️","Santa Maria Novella","20 min","Fachada mármol blanco y verde","🚶 10 min"],
+["12:55","ht","🧳","Maletas","35 min","","🚶 5 min"],
+["13:30","fo","🍦","Gelato dei Neri — despedida","30 min","Crema dei Neri + Yogur","🚶 15 min"],
+["15:00","tr","🚕","Al aeropuerto","","Taxi ~15€ o bus ~6€"],
+["18:50","tr","✈️","Vuelo FLR → París CDG","","Llegada 20:40"]
+],culture:"La cúpula de Brunelleschi (1436): primera gran cúpula en 1.000 años. El gelato se inventó aquí. El lampredotto: comida del pueblo desde la Edad Media.",must:["Piazzale Michelangelo","San Miniato","Duomo","Puertas Paraíso","Repubblica","Orsanmichele","Porcellino","All'Antico Vinaio","San Lorenzo","Santa Maria Novella"]}
 ]},
-{id:4,chapter:"Capítulo 4",title:"El Gran Día",date:"Lunes 7 de julio",location:"Viñedos de Champagne · Épernay",color:"#8B2E3B",bg:"#F8EEF0",icon:"💍",route:"https://www.google.com/maps/dir/LOISIUM+Wine+Spa+Hotel+Champagne/Avenue+de+Champagne+%C3%89pernay",
-wa:null,
-events:[
-{time:"09:00",title:"Mañana sin agenda",desc:"Dormir. Spa. Desayuno largo. Disfrutar el hotel y los viñedos. Dejar que el día fluya.",type:"rest"},
-{time:"12:30",title:"Almuerzo ligero",desc:"En el hotel o alrededores. Nada pesado.",type:"normal"},
-{time:"15:00",title:"💍 LA PROPUESTA — Viñedos de Champagne",desc:"El momento principal. Entre los viñedos de la región. Fotos, celebración, champagne. Dejarle espacio al día.",type:"proposal"},
-{time:"18:00",title:"Check-out LOISIUM → Épernay",desc:"Traslado a La Cave, Avenue de Champagne. Check-in, dejar maletas.",type:"transport"},
-{time:"20:00",title:"Noche sencilla en Épernay",desc:"Comprar champagne, quesos, embutidos. Caminar por Avenue de Champagne como prometidos. Nada lujoso. El contraste perfecto.",type:"highlight"}
+{id:"paris",flag:"🇫🇷",name:"París",dates:"2–4 Jul",accom:"16 Rue Molitor, 75016 · Cerca de Trocadéro",
+days:[
+{date:"2 Jul · Miércoles",title:"✈️ Llegada nocturna",stops:[
+["20:40","tr","✈️","Llegada Orly","",""],["21:20","tr","🚕","Transfer","40 min","Taxi ~35 min"],["22:00","ht","🏠","Airbnb","","Descansar"]
+],culture:"",must:[]},
+{date:"3 Jul · Jueves",title:"🗼 Monumental + Picnic Cumpleaños 🎂",stops:[
+["08:00","fo","☕","Desayuno boulangerie","45 min","",[["Café du Marché","Brasserie Rue Cler","€12","4.3⭐"]]],
+["09:15","si","📸","Trocadéro","40 min","LA foto de París. Luz dorada, sin turistas","🚶 25 min"],
+["10:10","si","🗼","Torre Eiffel exteriores","40 min","Todos los ángulos","🚶 12 min"],
+["09:25","si","🌳","Champ de Mars + École Militaire","30 min","Scout spot picnic + Napoleón","🚶 5 min"],
+["09:40","si","⭐","Arc de Triomphe","25 min","Llama eterna, relieves","🚶 35 min · 3km"],
+["10:40","si","🚶","Campos Elíseos bajando","25 min","Avenida más famosa del mundo"],
+["11:05","si","🏛️","Grand/Petit Palais","15 min","Exposición 1900"],
+["11:20","si","🌉","Puente Alejandro III","25 min","El más bello de París","🚶 3 min"],
+["11:48","si","🏛️","Les Invalides","35 min","Tumba de Napoleón","🚶 8 min"],
+["12:31","si","🖼️","Musée d'Orsay ext.","20 min","Gran reloj Beaux-Arts","🚶 12 min"],
+["13:03","si","⛲","Concordia","20 min","Obelisco 3.300 años","🚶 10 min"],
+["13:23","fo","🍽️","Almuerzo Tuileries","1h","",[["Angelina","Chocolate desde 1903","€15-20","4.3⭐"]]],
+["14:25","si","🌳","Jardines Tullerías","35 min",""],
+["15:00","si","🏛️","Louvre pirámide","35 min","Pirámide de Pei, Cour Carrée","🚶 5 min"],
+["15:35","si","🌉","Pont des Arts","15 min","","🚶 5 min"],
+["15:50","si","🏛️","Palais Royal","20 min","Columnas de Buren","🚶 5 min"],
+["16:10","si","🎭","Opéra Garnier","20 min","La más lujosa del mundo","🚶 8 min"],
+["16:38","fo","🍦","Recarga","25 min","",[["Ladurée","Macarons","€8-12","4.2⭐"]]],
+["17:05","tr","🚇","Metro al hotel","20 min","Único metro del día"],
+["17:25","ht","🏠","Descanso + preparar picnic","1h35",""],
+["20:00","fo","🎂","PICNIC CUMPLEAÑOS 🎂","1h30","Champ de Mars. Quesos, baguette, vino, pastel. Atardecer ~21:57"],
+["22:00","si","✨","Espectáculo luces Torre Eiffel","15 min","20.000 bombillas"],
+["22:15","si","📸","Fotos familiares Trocadéro","40 min",""],
+["23:15","ht","🏠","Regreso","","","🚶 25 min"]
+],culture:"Torre Eiffel (1889): iba a demolerse en 20 años. Pont Alexandre III: alianza franco-rusa. Invalides: tumba de Napoleón. Concordia: 1.119 ejecuciones. Louvre: 380.000 obras.",must:["Trocadéro","Torre Eiffel","Arc de Triomphe","Champs-Élysées","Pont Alexandre III","Invalides","Orsay","Concordia","Tullerías","Louvre","Palais Royal","Opéra Garnier","Picnic 🎂","Torre iluminada"]},
+{date:"4 Jul · Viernes",title:"🎨 Montmartre + Vuelo Madrid",stops:[
+["09:00","ht","🧳","Salida hotel CON maletas","","Metro al Gare du Nord con todo el equipaje"],
+["09:30","ht","🧳","Gare du Nord — guardar maletas","15 min","Consigna de equipaje en la estación (~€10-15/maleta). Libres para caminar sin peso"],
+["09:50","si","💕","Mur des Je T'aime","15 min","250 idiomas","🚶 15 min desde Gare du Nord"],
+["10:05","si","🎨","Bateau-Lavoir","15 min","Taller de Picasso","🚶 5 min"],
+["10:25","si","⛪","Sacré-Cœur","45 min","Panorámica 360°","🚶 8 min"],
+["11:10","si","⛪","Saint-Pierre (1147)","10 min","","🚶 2 min"],
+["11:22","si","🎨","Place du Tertre","25 min","Pintores al aire libre","🚶 3 min"],
+["11:50","si","🏠","La Maison Rose","10 min","La más fotografiada","🚶 5 min"],
+["12:02","si","🍷","Au Lapin Agile","10 min","Cabaret 1860","🚶 2 min"],
+["12:14","si","🍇","Viñedo de Montmartre","10 min","Último de París","🚶 1 min"],
+["12:55","si","🏠","Casa Van Gogh, Lepic 54","10 min","","🚶 5 min"],
+["13:05","si","🌾","Moulin de la Galette","10 min","Renoir","🚶 3 min"],
+["13:15","fo","🍽️","Almuerzo Montmartre","1h15","",[["L'Artiste","Place du Tertre, Montmartre. Restaurante familiar desde 1972. Fondues, cocina francesa casera","€12-18","4.3⭐"],["Chez Toinette","26 Rue Germain Pilon, arriba en Montmartre. Francés casero, ambiente íntimo","€14-20","4.5⭐"]]],
+["14:30","si","☕","Café des Deux Moulins","20 min","Café de Amélie","🚶 5 min"],
+["15:25","si","💃","Moulin Rouge ext.","15 min","Cabaret 1889","🚶 10 min"],
+["16:00","fo","🍦","Recarga","25 min","",[["Glace Bachir","Helado libanés","€3-5","4.5⭐"]]],
+["16:40","ht","🧳","Gare du Nord — recoger maletas","15 min","Pigalle/Montmartre está a 10 min caminando de Gare du Nord","🚶 10 min"],
+["17:00","tr","🚇","Metro/RER a Orly","50 min","RER B hasta Antony + OrlyVal. O metro hasta Denfert-Rochereau + OrlyBus"],
+["21:15","tr","✈️","Vuelo París → Madrid","","Llegada 23:25"]
+],culture:"Montmartre: colina bohemia de Picasso, Van Gogh, Modigliani. Sacré-Cœur: su piedra se blanquea con la lluvia. Moulin Rouge desde 1889.",must:["Mur Je T'aime","Sacré-Cœur","Place du Tertre","Maison Rose","Lapin Agile","Viñedo","Moulin de la Galette","Café Amélie","Moulin Rouge"]}
 ]},
-{id:5,chapter:"Capítulo 5",title:"Reencuentro",date:"Martes 8 de julio",location:"Épernay → París → Bruselas",color:"#2D6A4F",bg:"#EBF5F0",icon:"🚄",route:"https://www.google.com/maps/dir/Avenue+de+Champagne+%C3%89pernay/Gare+d%27%C3%89pernay/Gare+de+l%27Est+Paris/Gare+du+Nord+Paris/Trocad%C3%A9ro+Paris/Gare+du+Nord+Paris/Bruxelles-Midi/Brussels+South+Charleroi+Airport/Bruxelles-Midi/Grand+Place+Brussels/MEININGER+Hotel+Bruxelles+City+Center",
-wa:{day:"DÍA 4",msg:"Volvemos a París. Tendrás una sesión de fotos con tu futuro esposo.",when:"En el desayuno en Épernay, antes de salir"},
-events:[
-{time:"08:00",title:"📲 Imagen 4 al WhatsApp",desc:"\"Volvemos a París. Tendrás una sesión de fotos con tu futuro esposo. Lo mejor está por venir.\"",type:"whatsapp"},
-{time:"09:00",title:"Desayuno en La Cave Hotel",desc:"Sin afán. Últimas fotos por Avenue de Champagne a la luz del día.",type:"normal"},
-{time:"11:00",title:"Check-out La Cave · Caminar a estación",desc:"Estación de Épernay es pequeña. 15 min antes es suficiente.",type:"normal"},
-{time:"11:30",title:"Tren Épernay → París Est",desc:"~1h 15min. Tren TER directo. Reserva confirmada.",type:"transport"},
-{time:"12:50",title:"Dejar maletas en consigna · Gare du Nord",desc:"Gare de l'Est y du Nord están a 5 min caminando. Consigna automática o Nannybag.",type:"normal"},
-{time:"13:15",title:"Almuerzo ligero",desc:"Cerca de Gare du Nord. Algo rápido.",type:"normal"},
-{time:"14:30",title:"Metro a zona Torre Eiffel",desc:"Línea 4 → Línea 6 a Bir-Hakeim. ~25 min.",type:"transport"},
-{time:"15:30",title:"Sesión de fotos — Torre Eiffel",desc:"15:30 a 17:30. Primeras fotos oficiales como comprometidos. Fotógrafo: Alex (Airbnb Experience). Trocadéro, Champ de Mars, puentes del Sena.",type:"highlight"},
-{time:"17:30",title:"Salir hacia Gare du Nord",desc:"Metro o taxi/Uber (~20-25 min). Recoger maletas de consigna.",type:"transport"},
-{time:"18:00",title:"Seguridad + pasaportes Eurostar",desc:"Control equipaje + pasaportes salida Francia + entrada Bélgica. 50 min antes = margen seguro.",type:"normal"},
-{time:"19:25",title:"Eurostar París → Bruselas",desc:"Gare du Nord → Bruxelles-Midi. ~1h 22min. Reserva confirmada.",type:"transport"},
-{time:"20:47",title:"Llegada Bruxelles-Midi",desc:"Dejar maletas en consigna automática de la estación.",type:"normal"},
-{time:"21:20",title:"Flibco shuttle → Charleroi Airport",desc:"Bus directo ~55 min. Sale cada 20-30 min. ~€14-19/persona.",type:"transport"},
-{time:"22:15",title:"Llegada Charleroi Airport",desc:"Esperar a la familia. Café, algo de comer. Vuelo aterriza 22:55.",type:"normal"},
-{time:"23:25",title:"Reencuentro con la familia",desc:"Familia sale por equipaje + aduana (~30 min). Primera vez que los ven después de la propuesta.",type:"highlight"},
-{time:"23:40",title:"Flibco de vuelta → Bruxelles-Midi",desc:"Todos juntos. Último bus ~1:00 AM desde aeropuerto. ~55 min.",type:"transport"},
-{time:"00:35",title:"Llegada Bruxelles-Midi",desc:"Recoger maletas de consigna.",type:"normal"},
-{time:"00:45",title:"Caminata nocturna al hotel",desc:"Todos juntos caminando ~30 min: Bruxelles-Midi → Grand Place iluminada → MEININGER Hotel. El cierre perfecto.",type:"highlight"},
-{time:"~01:15",title:"MEININGER Hotel Bruxelles City Center",desc:"Quai du Hainaut 33. Recepción 24h. Todos en el hotel. Fin del capítulo.",type:"rest"}
+{id:"madrid",flag:"🇪🇸",name:"Madrid",dates:"5–8 Jul",accom:"C/ Pico Moncayo 5, 28038 · Puente de Vallecas",
+days:[
+{date:"5 Jul · Sábado",title:"🛒 Mercado + Lavandería + Retiro",stops:[
+["08:00","fo","🛒","Mercadona o Lidl","45 min","Comprar desayunos y cenas para los 4 días en Madrid"],
+["09:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Primer desayuno con lo comprado"],
+["10:00","ht","🧺","Lavandería","3h","Lavar y secar toda la ropa. Tiempo para descansar, organizar maletas"],
+["13:00","si","🌳","Parque del Retiro","","","🚶 25 min"],
+["13:30","fo","🍽️","Almuerzo Retiro","1h","",[["Florida Retiro","Terraza en parque","€15-20","4.2⭐"]]],
+["14:30","si","🚣","Estanque Grande","25 min","Barcas, Alfonso XII"],
+["14:55","si","💎","Palacio de Cristal","20 min","1887, reflejado en lago","🚶 8 min"],
+["15:20","si","🌹","Rosaleda + Ángel Caído","20 min","Única escultura al diablo","🚶 5 min"],
+["15:45","si","🚪","Puerta de Alcalá","15 min","Neoclásica 1778","🚶 10 min"],
+["16:00","si","⛲","Cibeles","20 min","Real Madrid celebra aquí","🚶 5 min"],
+["16:20","fo","🍦","Recarga","25 min","",[["Mistura","Artesanal","€3-5","4.5⭐"]]],
+["16:45","ht","🏠","Regreso","","","🚶 30 min"],
+["19:30","fo","🍽️","Cena en casa (Airbnb)","","Con lo comprado en Mercadona"]
+],culture:"",must:["Retiro","Palacio Cristal","Ángel Caído","Puerta Alcalá","Cibeles"]},
+{date:"6 Jul · Domingo",title:"🏰 Madrid Histórico",stops:[
+["08:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Con lo comprado en Mercadona"],
+["08:50","si","🌿","Atocha","10 min","Jardín tropical, 7.000 plantas","🚶 40 min"],
+["09:00","si","🎨","Reina Sofía ext.","10 min","Guernica adentro","🚶 5 min"],
+["09:10","si","🖼️","Prado ext.","10 min","Top 3 museos del mundo","🚶 8 min"],
+["09:25","si","⛲","Neptuno","5 min","Celebra el Atlético","🚶 3 min"],
+["09:30","si","🐻","Puerta del Sol","15 min","Km 0, Oso y Madroño","🚶 10 min"],
+["09:50","si","🏛️","Plaza Mayor","25 min","1619, Arco Cuchilleros","🚶 5 min"],
+["10:15","si","🍽️","Mercado San Miguel","25 min","Tapas, jamón, hierro 1916","🚶 2 min"],
+["10:45","si","🍷","La Latina / Cava Baja","25 min","Tapas más famosas","🚶 5 min"],
+["11:15","si","🏛️","San Francisco el Grande","10 min","Cúpula más grande","🚶 8 min"],
+["11:35","si","⛪","Almudena ext.","15 min","","🚶 10 min"],
+["11:50","si","🏰","Palacio Real","35 min","Más grande Europa occ. (3.418 hab.)","🚶 3 min"],
+["12:25","si","🌳","Sabatini","15 min","","🚶 3 min"],
+["13:00","fo","🍽️","Almuerzo","1h","",[["Casa Revuelta","Bacalao desde 1950","€3-5/tapa","4.4⭐"],["Taberna La Bola","Cocido desde 1870","€22","4.3⭐"]]],
+["14:00","si","🏛️","Templo de Debod","25 min","Egipcio real, 2.200 años","🚶 10 min"],
+["14:25","si","🏛️","Plaza España","15 min","Cervantes, Quijote","🚶 5 min"],
+["14:45","si","🏢","Gran Vía","25 min","Broadway madrileño"],
+["15:10","si","📸","Callao","10 min",""],
+["15:20","si","📚","Barrio de las Letras","20 min","Citas doradas en el suelo","🚶 10 min"],
+["15:45","fo","🍦","Recarga","20 min","",[["Valor","Churros+chocolate","€6-9","4.3⭐"]]],
+["16:05","ht","🏠","Regreso","","","🚶 40 min"],
+["19:30","fo","🍽️","Cena en casa (Airbnb)","","Con lo comprado en Mercadona"]
+],culture:"Madrid capital 1561. Plaza Mayor: Inquisición. Palacio Real: solo actos oficiales. Debod: regalo Egipto 1968. Gran Vía: 300 casas demolidas. Cervantes y Lope de Vega se odiaban y vivían a metros.",must:["Atocha","Prado","Sol","Plaza Mayor","San Miguel","La Latina","Almudena","Palacio Real","Debod","Plaza España","Gran Vía","Letras"]},
+{date:"7 Jul · Lunes",title:"🎸 Alternativo + Bernabéu ⚽",stops:[
+["08:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Con lo comprado en Mercadona"],
+["08:50","si","🎨","Lavapiés","20 min","Arte urbano, multicultural","🚶 40 min + 10 min"],
+["09:10","si","🏪","Antón Martín","15 min","Mercado auténtico","🚶 5 min"],
+["09:30","si","🏳️‍🌈","Chueca","25 min","LGTBI+, colorido","🚶 12 min"],
+["10:07","si","🎸","Malasaña / 2 de Mayo","30 min","La Movida, Almodóvar","🚶 8 min"],
+["10:45","si","🛍️","Fuencarral","20 min","Calle indie","🚶 5 min"],
+["11:13","si","🏛️","Austrias","25 min","Plaza Villa, medieval","🚶 8 min"],
+["11:38","si","🛍️","Preciados + Sol","20 min","Compras","🚶 5 min"],
+["11:58","si","🏛️","Círculo Bellas Artes","30 min","Mejor vista 360° (€5)","🚶 8 min"],
+["12:36","si","🛍️","Salamanca","15 min","Milla de oro","🚶 10 min"],
+["13:00","fo","🍽️","Almuerzo","1h15","",[["Casa Dani","Mercado de la Paz, Salamanca. Mejor tortilla de Madrid","€8-12","4.6⭐"],["Bar Lusa","C/ José Ortega y Gasset, Salamanca. Menú del día, fabada, lubina","€15","4.3⭐"]]],
+["14:15","si","🏛️","Colón","15 min","Bandera gigante","🚶 5 min"],
+["14:30","si","📚","Cuesta de Moyano","15 min","Libros desde 1925","🚶 12 min"],
+["15:12","si","🚶","Castellana norte","35 min","Madrid moderno, AZCA","🚶 3km"],
+["15:47","fo","🍦","Recarga","25 min",""],
+["16:17","si","⚽","Tour Bernabéu","90 min","15 Champions. €39-45. Comprar online","🚶 5 min"],
+["18:02","tr","🚇","Metro al hotel","25 min","Único metro"],
+["19:30","fo","🍽️","Cena en casa (Airbnb)","","Con lo comprado en Mercadona. Última noche en Madrid"]
+],culture:"Lavapiés: barrio judío hasta 1492. Chueca: epicentro LGTBI+ años 90. Malasaña: Manuela fusilada 1808. Bernabéu: remodelación €1.000M.",must:["Lavapiés","Chueca","Malasaña","Círculo BA","Salamanca","Colón","Bernabéu"]},
+{date:"8 Jul · Martes",title:"🌳 Retiro + Vuelo Bruselas",stops:[
+["08:00","fo","☕","Desayuno en casa (Airbnb)","45 min","Último desayuno en Madrid"],
+["09:00","ht","🧳","Preparar equipaje","2h","Ordenar todo, check-out"],
+["11:30","ht","🏠","Salida del Airbnb","",""],
+["12:00","si","🌳","Retiro último paseo","","Zonas nuevas: Estatuas, Bosque del Recuerdo","🚶 25 min"],
+["12:30","fo","🍽️","Almuerzo Retiro","1h","",[["Florida Retiro","Terraza","€15-20","4.2⭐"]]],
+["13:30","si","🌳","Paseo Retiro","2h","Sin afán, despedirse de Madrid"],
+["15:30","fo","🍦","Recarga","25 min",""],
+["16:00","si","📸","Última foto Puerta de Alcalá","",""],
+["16:30","tr","🚕","Taxi a Barajas","35 min","~€30-33"],
+["18:00","fo","🍽️","Cena en aeropuerto","","Última comida en España"],
+["20:35","tr","✈️","Madrid → Charleroi","","Llegada 22:55"]
+],culture:"",must:[]}
+]},
+{id:"bruselas",flag:"🇧🇪",name:"Bruselas",dates:"8–9 Jul",accom:"MEININGER Hotel, Quai du Hainaut 33",
+days:[
+{date:"8 Jul noche",title:"✈️ Llegada",stops:[
+["22:55","tr","✈️","Llegada Charleroi","",""],
+["23:15","tr","🚌","Bus Gare du Midi","55 min","~€17"],
+["00:30","ht","🏠","MEININGER Hotel","","24h recepción","🚶 20 min"]
+],culture:"",must:[]},
+{date:"9 Jul · Miércoles",title:"🍫 Bruselas completo",stops:[
+["08:00","fo","☕","Desayuno","45 min","Buffet €9.90"],
+["09:15","si","🏛️","Grand Place","40 min","Plaza más bella de Europa. Casas gremiales doradas","🚶 15 min"],
+["09:55","si","👦","Manneken Pis","10 min","61 cm, +1.000 trajes","🚶 5 min"],
+["10:05","si","👧","Jeanneke Pis","5 min","Versión femenina","🚶 5 min"],
+["10:15","si","🍫","Galeries Saint-Hubert","20 min","Más antigua de Europa (1847)","🚶 5 min"],
+["10:35","si","🎨","Murales Cómic","25 min","Tintín, Pitufos, Lucky Luke"],
+["11:00","si","⛪","Cathédrale St-Michel","20 min","Gótica 1226","🚶 8 min"],
+["11:28","si","🏛️","Mont des Arts","20 min","Mejor vista de Bruselas","🚶 5 min"],
+["11:48","si","🏛️","Palais Royal","15 min","","🚶 5 min"],
+["12:03","si","🏛️","Grand Sablon","15 min","Chocolaterías premium","🚶 8 min"],
+["12:18","si","⛪","Notre-Dame du Sablon","10 min","","🚶 2 min"],
+["12:47","si","🏛️","Palais de Justice","15 min","Edificio más grande s.XIX","🚶 5 min"],
+["13:00","fo","🍽️","Almuerzo","1h15","",[["Chez Léon","Moules-frites desde 1893","€16-22","4.0⭐"],["Fritland","Mejores frites","€4-8","4.3⭐"],["Fin de Siècle","Belga auténtico","€14-20","4.4⭐"]]],
+["14:15","si","🍺","Delirium Café","20 min","+3.000 cervezas, récord Guinness","🚶 5 min"],
+["14:53","si","🐟","Sainte-Catherine","15 min","Terrazas, marisquerías","🚶 8 min"],
+["15:43","si","🏛️","Parc Cinquantenaire","35 min","Arco del Triunfo belga","🚶 35 min"],
+["16:18","fo","🍦","Gofre belga","25 min","",[["Maison Dandoy","Desde 1829","€5-8","4.4⭐"]]],
+["17:08","si","🍫","Chocolaterías","20 min","Marcolini, Neuhaus, Leonidas"],
+["18:00","ht","🏠","Regreso al hotel — descansar","1h","Recargar energías, ducharse, cambiarse para la noche","🚶 15 min"],
+["19:00","fo","🍽️","Cena en la Grand Place iluminada ✨","2h","La Grand Place iluminada de noche es mágica. Cenar CON VISTA a la plaza",[["'t Kelderke","Grand Place 15 — EN la plaza. Sótano medieval. Mejillones, carbonada, croquetas de camarón. El más recomendado","€14-20","4.3⭐"],["La Chaloupe d'Or","Grand Place 24 — EN la plaza. Ensaladas, carnes, pescados. Terraza con vista directa a las casas gremiales","€18-28","4.1⭐"],["The Brothers","Grand Place — EN la plaza. Cocina belga, mejillones al ajo espectaculares. Descuentos por TheFork","€16-24","4.2⭐"],["Brussels Grill","Grand Place — EN la plaza. Carnes a la parrilla y platos belgas. Opción familiar","€14-22","4.0⭐"]],"🚶 15 min"],
+["22:00","ht","🏠","Regreso al hotel","","Descansar para Brujas mañana","🚶 15 min"]
+],culture:"Grand Place bombardeada 1695, reconstruida en 4 años. Bélgica inventó el praliné (1912), las frites (no son francesas) y tiene +1.500 cervezas.",must:["Grand Place","Manneken Pis","Galeries","Murales Cómic","Cathédrale","Mont des Arts","Sablon","Palais Justice","Delirium","Cinquantenaire","Chocolaterías"]}
+]},
+{id:"brujas",flag:"🇧🇪",name:"Brujas",dates:"10 Jul",accom:"Day trip · Tren 1h desde Bruselas",
+days:[
+{date:"10 Jul · Jueves",title:"🏰 Brujas medieval",stops:[
+["07:30","ht","🏠","Salida hotel","","","🚶 20 min a Gare du Midi"],
+["08:00","tr","🚂","Tren → Bruges","1h","~€17-23"],
+["09:15","si","🏛️","Markt","25 min","Casas escalonadas colores","🚶 15 min"],
+["09:40","si","🔔","Belfort","15 min","83m, 366 escalones. UNESCO"],
+["09:55","si","🏛️","Burg","15 min","Ayuntamiento gótico 1421","🚶 2 min"],
+["10:12","si","⛪","Basílica Santa Sangre","20 min","Reliquia Cruzadas (1150)"],
+["10:35","si","📸","Rozenhoedkaai","15 min","Punto más fotografiado"],
+["11:00","si","⛪","Iglesia Nuestra Señora","20 min","Madonna Miguel Ángel (1504)","🚶 10 min"],
+["11:20","si","🌉","Puente de Bonifacio","10 min","De los más románticos de Europa","🚶 1 min"],
+["11:30","si","🏛️","Begijnhof","20 min","Casitas blancas 1245. UNESCO","🚶 8 min"],
+["11:50","si","💕","Minnewater — Lago del Amor","15 min","Cisnes, puente medieval","🚶 3 min"],
+["12:25","si","🍺","De Halve Maan","15 min","Cervecería desde 1856","🚶 5 min"],
+["13:00","fo","🍽️","Almuerzo","1h15","",[["De Vlaamsche Pot","Estofado flamenco","€14-20","4.5⭐"],["Chez Albert","Gofres legendarios","€5-8","4.3⭐"]]],
+["14:15","si","🍫","Chocolaterías Brujas","20 min",""],
+["14:45","si","📸","Canales zona sur","25 min",""],
+["16:00","fo","🍦","Recarga gofre","25 min",""],
+["17:35","si","🌅","Canales atardecer","30 min","Luz hasta ~22:00"],
+["18:05","fo","🍽️","Cena Brujas","1h10","",[["De Stoepa","Terraza jardín","€14-20","4.5⭐"],["Bistro Refter","Flamenca moderna","€16-22","4.6⭐"]]],
+["19:15","si","💕","Minnewater atardecer","20 min","","🚶 8 min"],
+["20:00","tr","🚂","Tren → Brussels","1h",""],
+["21:20","ht","🏠","Hotel","","","🚶 20 min"]
+],culture:"Brujas: ciudad más rica de Europa s.XIV. Puerto encenagado = 'congelada en el tiempo'. Centro UNESCO intacto. Van Eyck perfeccionó pintura al óleo (1432). Cisnes obligatorios desde s.XV.",must:["Markt","Belfort","Burg","Santa Sangre","Rozenhoedkaai","Madonna Miguel Ángel","Puente Bonifacio","Begijnhof","Minnewater","De Halve Maan","Canales"]}
+]},
+{id:"gante",flag:"🇧🇪",name:"Gante",dates:"11–12 Jul",accom:"Day trip + Vuelo",
+days:[
+{date:"11 Jul · Viernes",title:"⚔️ Gante + Atomium + Vuelo",stops:[
+["07:45","tr","🚂","Tren → Ghent","35 min","~€11-23"],
+["08:45","si","🌉","Sint-Michielsbrug","15 min","LA foto: tres torres en línea","🚶 25 min"],
+["09:00","fo","☕","Desayuno Gante","45 min","",[["Julie's House","Brunch","€8-12","4.5⭐"]]],
+["09:45","si","🏛️","Graslei & Korenlei","20 min","Muelles medievales más bellos","🚶 3 min"],
+["10:05","si","⛪","Sint-Niklaaskerk","15 min","Gótico del Escalda","🚶 3 min"],
+["10:20","si","🔔","Belfort","10 min","91m, dragón dorado. UNESCO","🚶 2 min"],
+["10:30","si","⛪","Catedral San Bavón","30 min","Cordero Místico Van Eyck — robado 7 veces","🚶 3 min"],
+["11:00","si","🏰","Gravensteen","25 min","Castillo s.XII con foso","🚶 8 min"],
+["11:25","si","🏘️","Patershol","20 min","Medieval más antiguo","🚶 3 min"],
+["11:45","si","🎨","Graffiti Street","10 min","Street art legal","🚶 5 min"],
+["12:55","tr","🚂","Tren → Brussels","35 min",""],
+["14:00","fo","🍽️","Almuerzo despedida Bruselas","1h","",[["Fin de Siècle","Belga auténtico","€14-20","4.4⭐"]]],
+["15:00","si","⚛️","ATOMIUM (opcional)","25 min","Símbolo Bruselas, Expo 1958","🚊 25 min ida"],
+["16:15","si","🍫","Últimas compras + cerveza","30 min",""],
+["17:30","tr","🚌","Bus Charleroi","55 min","~€17"],
+["21:35","tr","✈️","Vuelo → Barcelona","","Llegada 23:45"],
+["00:15","ht","🏠","Ibis aeropuerto BCN","",""]
+],culture:"Gante: 2ª ciudad Europa norte en Edad Media. Cordero Místico de Van Eyck robado 7 veces (Napoleón, nazis). Gravensteen: para intimidar rebeldes. Atomium: Expo 1958.",must:["Sint-Michielsbrug","Graslei","Belfort","San Bavón","Cordero Místico","Gravensteen","Patershol","Graffiti Street","Atomium"]},
+{date:"12 Jul · Sábado",title:"✈️ Regreso a casa 🌎",stops:[
+["09:00","ht","🏠","Desayuno Ibis","",""],
+["10:00","ht","🧳","Check-out","","Ibis pegado a terminal"],
+["13:00","tr","✈️","Vuelo → Colombia / Chile","","¡Buen viaje! 🌎"]
+],culture:"",must:[]}
 ]}
 ];
 
-const CHECKLIST=[
-{item:"Hotel París 2 noches (4-5 julio) ✅",cat:"hotel",done:true},
-{item:"LOISIUM Wine & Spa 2 noches (6-7 julio) ✅",cat:"hotel",done:true},
-{item:"La Cave Av. Champagne, Épernay 1 noche (7 julio) ✅",cat:"hotel",done:true},
-{item:"MEININGER Bruselas (8 julio+) ✅",cat:"hotel",done:true},
-{item:"Tren París Est → Épernay 06:36 (6 julio) ✅",cat:"transport",done:true},
-{item:"Tren Épernay → París (8 julio) ✅",cat:"transport",done:true},
-{item:"Eurostar París → Bruselas 19:25 (8 julio) ✅",cat:"transport",done:true},
-{item:"Taxi estación Épernay → LOISIUM (6 julio)",cat:"transport",done:false},
-{item:"Flibco Bruxelles-Midi ↔ Charleroi (ida+vuelta)",cat:"transport",done:false},
-{item:"Consigna maletas Gare du Nord — Nannybag (8 julio)",cat:"transport",done:false},
-{item:"Consigna maletas Bruxelles-Midi (8 julio noche)",cat:"transport",done:false},
-{item:"Tour Moët & Chandon / Dom Pérignon",cat:"activity",done:false},
-{item:"Crucero Sena — Vedettes (5 julio noche) ✅",cat:"activity",done:true},
-{item:"Cena LOISIUM (6 julio) ✅",cat:"activity",done:true},
-{item:"Spa/masajes LOISIUM ✅",cat:"activity",done:true},
-{item:"Fotógrafo Alex (Airbnb) — Torre Eiffel 15:30-17:30 (8 julio) ✅",cat:"activity",done:true},
-{item:"3 imágenes-sorpresa para WhatsApp ✅",cat:"personal",done:true},
-{item:"El anillo 💍 ✅",cat:"personal",done:true}
+let cur=0,cday=0;
+const $=id=>document.getElementById(id);
+
+function toggleF(id){const e=document.getElementById('f_'+id);if(e)e.classList.toggle('open')}
+function toggleC(){const e=document.getElementById('cb');if(e)e.classList.toggle('open')}
+
+function go(c,d){cur=c;cday=d||0;render();window.scrollTo(0,0)}
+
+function render(){
+if(cur===0){renderHome();return}
+const c=C[cur],d=c.days[cday],ic=ICONS[c.id]||c.flag,co=COLORS[c.id]||'#2E86C1';
+let h=`<div class="nav"><div class="nav-inner">
+<button class="nb" onclick="go(0)"><span class="nf">🏠</span>Inicio</button>
+${C.slice(1).map((x,i)=>`<button class="nb${cur===i+1?' active':''}" onclick="go(${i+1})">${x.flag} ${x.name}</button>`).join('')}
+</div></div>
+<div class="content">
+<button class="back" onclick="go(0)">← Todas las ciudades</button>
+<div class="ch"><div class="ch-icon">${ic}</div><div><div class="ch-name">${c.flag} ${c.name}</div><div class="ch-info">${c.dates} · ${c.accom||''}</div></div></div>
+<div class="dt">${c.days.map((dd,i)=>`<button class="dtb${i===cday?' active':''}" onclick="go(${cur},${i})">${dd.date.split('·')[0]}<br><span style="font-size:9px;opacity:.6">${dd.title.substring(0,22)}</span></button>`).join('')}</div>
+<div class="dh"><div class="dh-title">${d.title}</div><div class="dh-sub">${d.date}</div></div>
+${(()=>{const rk=c.id+'_'+cday;return ROUTES[rk]?'<a class="map-btn" href="'+ROUTES[rk]+'" target="_blank" rel="noopener">🗺️ Abrir ruta del día en Google Maps</a>':'';})()}
+<div class="tl">`;
+d.stops.forEach((s,si)=>{
+const[time,type,icon,name,dur,desc,wf,food]=s;
+const isF=Array.isArray(wf);const walk=isF?'':wf;const fa=isF?wf:(Array.isArray(food)?food:null);
+const dc=type==='si'?'ds':type==='fo'?'df':type==='ht'?'dh2':type==='tr'?'dtr':'dge';
+const fid=cur+'_'+cday+'_'+si;
+h+=`<div class="stop"><div class="s-time">${time}</div><div class="s-dot-w"><div class="s-dot ${dc}"></div><div class="s-line"></div></div><div class="s-card">
+<div class="s-name">${icon} ${name}</div>
+${desc?`<div class="s-desc">${desc}</div>`:''}
+${dur?`<div class="s-dur">⏱ ${dur}</div>`:''}
+${walk?`<div class="s-walk">🚶 ${walk}</div>`:''}
+${fa?`<button class="fbtn" onclick="toggleF('${fid}')">🍴 ${fa.length} recomendados</button><div class="flist" id="f_${fid}">${fa.map(f=>`<div class="fi"><div class="fn">${f[0]}</div><div class="fd">${f[1]}</div><div class="fp">${f[2]} ${f[3]||''}</div></div>`).join('')}</div>`:''}
+</div></div>`;
+});
+h+=`</div>`;
+if(d.culture){h+=`<button class="cult-btn" onclick="toggleC()"><span>📖 Contexto histórico y cultural</span><span>▼</span></button><div class="cult-body" id="cb">${d.culture}</div>`}
+if(d.must&&d.must.length){h+=`<div class="ms"><h3>✅ Imperdibles del día (${d.must.length})</h3><div class="ms-chips">${d.must.map(m=>`<span class="msc">✓ ${m}</span>`).join('')}</div></div>`}
+h+=`</div>`;
+app.innerHTML=h;
+}
+
+function renderHome(){
+const tips=[
+["👟","<b>Calzado:</b> Zapatos MUY cómodos para 15-20 km diarios en adoquines"],
+["☀️","<b>Protección solar:</b> SPF50+, gorra, gafas — julio europeo es intenso"],
+["💧","<b>Hidratación:</b> Botella reutilizable. Roma tiene fuentes gratis (nasoni)"],
+["📱","<b>Documentos:</b> Pasaportes, boarding passes offline, seguro de viaje"],
+["💳","<b>Dinero:</b> Tarjeta sin comisión. Algo de efectivo para sitios cash-only"],
+["🔌","<b>Enchufes:</b> Tipo C/F europeo. Igual en España, Italia, Francia y Bélgica"],
+["📶","<b>SIM Card:</b> Comprar tarjeta SIM con datos para toda Europa al llegar — imprescindible para mapas, traducción y comunicación"],
+["👕","<b>Ropa:</b> Cómoda y fresca, es verano europeo (+30°C). Shorts, camisetas, sandalias para descanso"],
+["🍽️","<b>Comidas:</b> ~10-12€/persona. Menús del día y mercados son la clave"],
+["🧳","<b>Maleta de mano:</b> Máximo 40 x 30 x 20 cm para que quepa bajo el asiento (Ryanair/Vueling)"],
+["⏰","<b>Madrugar:</b> Es clave para lograr conocer todos los puntos del día sin afán"],
+["🚿","<b>Mañanas:</b> Levantarse temprano para lograr bañarnos todos a tiempo y salir sin contratiempos"],
+["🧺","<b>Lavandería:</b> El 05 de julio será día de descanso en Madrid, para ir a lavandería y secado de ropa"],
+["🛒","<b>Mercado:</b> El 05 de julio de descanso en Madrid, se hará mercado en Mercadona para desayunos y cenas"],
+["🗣️","<b>Idioma:</b> Saludos básicos — Italiano: Buongiorno (buenos días), Buonasera (buenas noches), Grazie (gracias), Per favore (por favor) · Francés: Bonjour (buenos días), Bonsoir (buenas noches), Merci (gracias), S'il vous plaît (por favor), Au revoir (adiós)"],
+["😊","<b>Actitud:</b> Disfrutar las caminatas, el sol, todos felices — ¡es nuestro viaje soñado!"]
 ];
-
-const catColors={hotel:"#3B5998",transport:"#2D6A4F",activity:"#C4A35A",personal:"#8B2E3B"};
-const catLabels={hotel:"Hoteles",transport:"Transporte",activity:"Actividades",personal:"Personal"};
-
-function renderDays(){
-  const c=document.getElementById('days');
-  DAYS.forEach(d=>{
-    const isProposal=d.id===4;
-    const card=document.createElement('div');
-    card.className='day-card'+(isProposal?' proposal-day':'');
-    card.innerHTML=`
-      <button class="day-head" style="--day-bg:${d.bg}" onclick="toggleDay(${d.id})">
-        <div class="day-icon" style="background:${d.color}">${d.icon}</div>
-        <div class="day-meta">
-          <div class="day-chapter" style="color:${d.color}">${d.chapter}</div>
-          <div class="day-title">${d.title}</div>
-          <div class="day-sub">${d.date} · ${d.location}</div>
-        </div>
-        <span class="day-arrow" id="arrow-${d.id}">▾</span>
-      </button>
-      <div class="day-body" id="body-${d.id}">
-        ${d.route?`<a class="route-btn" href="${d.route}" target="_blank" rel="noopener noreferrer">📍 Ver ruta completa en Google Maps</a>`:''}
-        <div class="timeline">
-          ${d.events.map((e,i)=>`
-            <div class="ev">
-              <div class="ev-dot ${e.type}"></div>
-              <div class="ev-content">
-                <div class="ev-header">
-                  <span class="ev-time">${e.time}</span>
-                  <span class="ev-title${e.type==='proposal'?' proposal-title':''}">${e.title}</span>
-                </div>
-                <div class="ev-desc">${e.desc}</div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-        ${d.wa?`
-          <div class="wa-box">
-            <div class="wa-label">📲 IMAGEN WHATSAPP — ${d.wa.day}</div>
-            <div class="wa-msg">"${d.wa.msg}"</div>
-            <div class="wa-when">Cuándo: ${d.wa.when}</div>
-          </div>
-        `:''}
-      </div>
-    `;
-    c.appendChild(card);
-  });
-  toggleDay(4);
+let h=`<div class="hero">
+<div class="hero-badge">✈️ Aventura Familiar · Europa 2026</div>
+<h1>EURO<span>TRIP</span> 2026</h1>
+<div class="hero-sub">Barcelona → Roma → Florencia → París → Madrid → Bruselas → Brujas → Gante → Barcelona</div>
+<div class="hero-stats">
+<div class="hs"><div class="v">16</div><div class="l">Días</div></div>
+<div class="hs"><div class="v">4</div><div class="l">Países</div></div>
+<div class="hs"><div class="v">9</div><div class="l">Ciudades</div></div>
+<div class="hs"><div class="v">~200</div><div class="l">Imperdibles</div></div>
+<div class="hs"><div class="v">🚶</div><div class="l">Todo a pie</div></div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">Nuestro <span>itinerario</span></div>
+<div class="city-grid">
+${C.slice(1).map((c,i)=>{const ic=ICONS[c.id]||'🌍';const co=COLORS[c.id]||'#2E86C1';const ms=c.days.reduce((a,d)=>a+(d.must?d.must.length:0),0);
+return`<div class="cc" onclick="go(${i+1})">
+<div class="cc-flag" style="background:${({bcn:'#FDECEA',roma:'#FDECEA',firenze:'#FDECEA',paris:'#EBF5FB',madrid:'#FEF9E7',bruselas:'#EAFAF1',brujas:'#EAFAF1',gante:'#EAFAF1'})[c.id]||'#F0EDE8'};color:${({bcn:'#C0392B',roma:'#C0392B',firenze:'#C4622D',paris:'#2E86C1',madrid:'#E67E22',bruselas:'#1E8449',brujas:'#1E8449',gante:'#1E8449'})[c.id]||'#777'}">${({bcn:'España',roma:'Italia',firenze:'Italia',paris:'Francia',madrid:'España',bruselas:'Bélgica',brujas:'Bélgica',gante:'Bélgica'})[c.id]||''}</div>
+<div class="cc-img">${ic}</div>
+<div class="cc-name">${c.name}</div>
+<div class="cc-dates">${c.dates}</div>
+<div class="cc-tag">${c.days.length} día${c.days.length>1?'s':''} · ${ms} imperdibles</div>
+<div class="cc-accent" style="background:${co}"></div>
+</div>`}).join('')}
+</div>
+<div class="section-title">🧳 Recomendaciones para <span>viajeros</span></div>
+<div class="tips"><div class="tips-grid">
+${tips.map(t=>`<div class="tip"><span class="tip-icon">${t[0]}</span><span>${t[1]}</span></div>`).join('')}
+</div></div>
+</div>
+<div class="footer">EUROTRIP 2026 · Hecho con ❤️ para toda la familia<br>27 junio — 12 julio · 4 países · 9 ciudades · ~200 imperdibles · todo caminando</div>`;
+app.innerHTML=h;
 }
-
-function toggleDay(id){
-  const body=document.getElementById('body-'+id);
-  const arrow=document.getElementById('arrow-'+id);
-  const head=body.previousElementSibling;
-  body.classList.toggle('show');
-  arrow.classList.toggle('open');
-  head.classList.toggle('open');
-}
-
-function renderChecklist(){
-  const c=document.getElementById('checklist');
-  let html=`<div class="checklist-title">Checklist de reservas</div>`;
-  html+=`<div class="cat-tags">`;
-  for(const[k,v]of Object.entries(catLabels)){
-    html+=`<span class="cat-tag" style="background:${catColors[k]}18;color:${catColors[k]}">${v}</span>`;
-  }
-  html+=`</div>`;
-  CHECKLIST.forEach((item,i)=>{
-    html+=`<label class="check-item">
-      <input type="checkbox" ${item.done?'checked':''} style="accent-color:${catColors[item.cat]}" onchange="updateCount()">
-      <span class="label${item.done?' done':''}" id="lbl-${i}" onclick="toggleLabel(${i})">${item.item}</span>
-      <span class="badge" style="background:${catColors[item.cat]}18;color:${catColors[item.cat]}">${catLabels[item.cat]}</span>
-    </label>`;
-  });
-  html+=`<div class="check-count" id="checkCount"></div>`;
-  c.innerHTML=html;
-  updateCount();
-}
-
-function toggleLabel(i){
-  const lbl=document.getElementById('lbl-'+i);
-  lbl.classList.toggle('done');
-}
-
-function updateCount(){
-  const checks=document.querySelectorAll('#checklist input[type=checkbox]');
-  const done=[...checks].filter(c=>c.checked).length;
-  document.getElementById('checkCount').textContent=done+' / '+checks.length+' completados';
-}
-
-function toggleChecklist(){
-  const cl=document.getElementById('checklist');
-  const btn=document.getElementById('checkBtn');
-  cl.classList.toggle('show');
-  btn.classList.toggle('active');
-  btn.textContent=cl.classList.contains('show')?'Ocultar checklist':'📋 Ver checklist de reservas';
-}
-
-renderDays();
-renderChecklist();
+render();
 </script>
 </body>
 </html>
